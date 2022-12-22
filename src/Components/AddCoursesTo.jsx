@@ -1,8 +1,8 @@
-const AddCoursesTo = () => {
+const AddCoursesTo = ({courses, data, handleClick}) => {
     return (
         <>
         <h1>Add course</h1>
-        <input type="button" value="Back to main menu" />
+        <button onClick={() => handleClick(0)}  >Back to main menu</button>
         <br />
     
         <input type="text" name="" id="kurssiteksti" />

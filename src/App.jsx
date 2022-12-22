@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import ListNotes from './Components/ListNotes'
@@ -12,9 +12,26 @@ import Buttons from './Components/Buttons'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [coursesData, setCoursesData] = useState([]);
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState([])
   const [data, setData] = useState([]);
+  const URL = "https://luentomuistiinpano-api.deta.dev/notes/";
+
+  const ReturnCourses = (data) => {
+    const Courses = Array.from(
+      new Set(data.map((it) => it.course.name))
+    );
+    return Courses;
+  };
+
+  useEffect(() => {
+    fetch(URL)
+      .then((r) => r.json())
+      .then((r) => {
+        setData(r);
+        setCourses(ReturnCourses(r))
+      });
+  }, []);
+
   
 
   return (
@@ -23,23 +40,17 @@ function App() {
       <h1>Notes App</h1>
     <Buttons className="buttons" handleClick={setCount} count={count}></Buttons> 
     {count === 1 && (
-        <AddNotes courses={coursesData} data={data} setData={setData}></AddNotes>
+        <AddNotes handleClick={setCount}  data={data}></AddNotes>
       )}
      {count === 2 && (
-        <SavedNotes courses={coursesData} data={data} setData={setData}></SavedNotes>
+        <SavedNotes handleClick={setCount}  data={data} courses={courses}></SavedNotes>
       )}
      {count === 3 && (
-        <AddCoursesTo courses={coursesData} data={data} setData={setData}></AddCoursesTo>
+        <AddCoursesTo handleClick={setCount}  data={data}></AddCoursesTo>
       )}
 
-    
-    {/* <AddCoursesTo />
-    <AddNotes />
-    <SavedNotes />  */}
-
-{/* /* <CreateNotesForClass />
-    <ListNotes />
-    <AddCourses /> */}
+    <button onClick={() => console.log(data)}>test</button>
+    <button onClick={() => console.log(courses)}>test</button>
 
     </div>
     </>

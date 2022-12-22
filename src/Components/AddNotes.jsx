@@ -1,8 +1,8 @@
-const AddNotes = (courses, data, setData) => {
+const AddNotes = ({courses, data, handleClick}) => {
     return (
         <>
         <h1>Add Notes</h1>
-        <input type="button" value="Back to main menu" />
+        <button onClick={() => handleClick(0)}  >Back to main menu</button>
         <br />
         <div>
             Course:
