@@ -21,13 +21,16 @@ function App() {
     <>
     <div className="App">
       <h1>Notes App</h1>
-    <Buttons className="buttons" handleClick={setCount} count={count}>
+    <Buttons className="buttons" handleClick={setCount} count={count}></Buttons> 
     {count === 1 && (
         <AddNotes courses={coursesData} data={data} setData={setData}></AddNotes>
       )}
-    
-   
-    </Buttons> 
+     {count === 2 && (
+        <SavedNotes courses={coursesData} data={data} setData={setData}></SavedNotes>
+      )}
+     {count === 3 && (
+        <AddCoursesTo courses={coursesData} data={data} setData={setData}></AddCoursesTo>
+      )}
 
     
     {/* <AddCoursesTo />
