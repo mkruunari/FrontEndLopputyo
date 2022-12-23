@@ -4,6 +4,7 @@ import SelectDropDown from "./SelectDropDown";
 const DataNote = ({ noteData }) => {
     return (
         <>
+            {/* pääsee syvemmälle datassa pisteellä */}
             <li className="linkit" >{noteData.course.name} (id: {noteData.course.id}):  {noteData.timestamp}
             <span className="note-text">{noteData.text}</span>
             </li>

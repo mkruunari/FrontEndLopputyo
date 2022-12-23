@@ -51,3 +51,11 @@
 .note-text {
   display: block
 }
+
+.linkit {
+  padding: 10px;
+}
+
+.dropdown{
+  size: 100px;
+}
