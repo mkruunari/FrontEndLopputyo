@@ -22,7 +22,7 @@ function App() {
     );
     return Courses;
   };
-
+//  päivittää/renderöi
   useEffect(() => {
     fetch(URL)
       .then((r) => r.json())
@@ -40,7 +40,7 @@ function App() {
       <h1>Notes App</h1>
     <Buttons className="buttons" handleClick={setCount} count={count}></Buttons> 
     {count === 1 && (
-        <AddNotes handleClick={setCount}  data={data}></AddNotes>
+        <AddNotes handleClick={setCount}  data={data} setData={setData} courses={courses} ></AddNotes>
       )}
      {count === 2 && (
         <SavedNotes handleClick={setCount}  data={data} courses={courses}></SavedNotes>
@@ -49,8 +49,8 @@ function App() {
         <AddCoursesTo handleClick={setCount}  data={data}></AddCoursesTo>
       )}
 
-    <button onClick={() => console.log(data)}>test</button>
-    <button onClick={() => console.log(courses)}>test</button>
+    {/* <button onClick={() => console.log(data)}>test</button>
+    <button onClick={() => console.log(courses)}>test</button> */}
 
     </div>
     </>

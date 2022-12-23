@@ -1,9 +1,12 @@
 import { useState } from "react";
+import SelectDropDown from "./SelectDropDown";
 
-const Note = ({ noteData }) => {
+const DataNote = ({ noteData }) => {
     return (
         <>
-            <li className="linkit">{noteData.course.name}: {noteData.text}</li>
+            <li className="linkit" >{noteData.course.name} (id: {noteData.course.id}):  {noteData.timestamp}
+            <span className="note-text">{noteData.text}</span>
+            </li>
         </>
     );
 };
@@ -15,15 +18,14 @@ const SavedNotes = ({courses, data, handleClick}) => {
         <h1>Saved Notes</h1>
         <button onClick={() => handleClick(0)}  >Back to main menu</button>
         <br />
+        <br />
         <div>
-            <select>
-            {courses.map((r, i) => (
-            <option key={i}>{r}</option>
-             ))}
-            </select>
+            <span className="course">Course:</span>
+            <SelectDropDown courses={courses}></SelectDropDown>
+           
             <ul>
                 {data.map((r, i) => (
-                    <Note noteData={r} key={i}></Note>
+                    <DataNote noteData={r} key={i}></DataNote>
                 ))}
             </ul>
             

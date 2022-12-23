@@ -47,3 +47,7 @@
   background-color: rgb(68, 63, 63);
   padding: 10px;
 }
+
+.note-text {
+  display: block
+}
