@@ -18,10 +18,7 @@ function App() {
     );
     return Courses;
   };
-  const deleteByText = (t) =>{
-    const r = results.filter(noteData => noteData.text !==t)
-    setResults(r)
-  }
+ 
 //  päivittää/renderöi
   useEffect(() => {
     fetch(URL)
@@ -40,7 +37,7 @@ function App() {
       <h1>Notes App</h1>
     <Buttons className="buttons" handleClick={setCount} count={count}></Buttons> 
     {count === 1 && (
-        <AddNotes handleClick={setCount}  data={data} setData={setData} courses={courses} deleteByText={deleteByText}></AddNotes>
+        <AddNotes handleClick={setCount}  data={data} setData={setData} courses={courses}></AddNotes>
       )}
      {count === 2 && (
         <SavedNotes handleClick={setCount}  data={data} courses={courses}></SavedNotes>

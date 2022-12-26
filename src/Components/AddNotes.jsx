@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import DeleteButton from "./DeleteButton";
 import SelectDropDown from "./SelectDropDown";
 const AddNotes = ({courses, data, setData, handleClick, deleteByText}) => {
     const [text, setText] = useState("");
@@ -53,15 +52,9 @@ const AddNotes = ({courses, data, setData, handleClick, deleteByText}) => {
         <div>
             {notes.map((r, i) => {
                 return  <h2 key={i}>{r.text}</h2>
-                // <DeleteButton deleteByText={deleteByText}/>
+               
             })}
-            {/* ensaanut toimimaan tekstin poistoa oikein */}
-             {/* {notes.map((r, i) => {
-                return <DeleteButton
-                deleteByText={deleteByText}
-                
-                key={i} data ={r} />;
-            })} */}
+          
         </div>
         </>
     )
