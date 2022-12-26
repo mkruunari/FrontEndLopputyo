@@ -1,4 +1,6 @@
-const AddCoursesTo = ({courses, data, handleClick}) => {
+
+const AddCoursesTo = ({handleClick}) => {
+    
     return (
         <>
         <h1>Add course</h1>
@@ -7,7 +9,6 @@ const AddCoursesTo = ({courses, data, handleClick}) => {
     
         <input type="text" name="" id="kurssiteksti" />
         <input type="button" value="Save" />
-        
         </>
     )
 

@@ -31,8 +31,9 @@ const SavedNotes = ({courses, data, handleClick}) => {
             </ul>
             
            
-                {/* <button onClick={() => {console.log(courses)}}>debug</button> */}
-                <button onClick={() => {console.log(data)}}>DATA</button>
+                
+                {/* <button onClick={() => {console.log(data)}}>DATA TEST btn</button>
+                {/* Tämä nappula näyttää consolissa sen, et sinne on ilmestynyt uusi note */}
                 
         </div>
  

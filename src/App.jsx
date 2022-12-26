@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import ListNotes from './Components/ListNotes'
-import AddCourses from './Components/AddCourses'
-import CreateNotesForClass from './Components/CreateNotesForClass'
 import AddCoursesTo from './Components/AddCoursesTo'
 import AddNotes from './Components/AddNotes'
 import SavedNotes from './Components/SavedNotes'
@@ -22,6 +18,10 @@ function App() {
     );
     return Courses;
   };
+  const deleteByText = (t) =>{
+    const r = results.filter(noteData => noteData.text !==t)
+    setResults(r)
+  }
 //  päivittää/renderöi
   useEffect(() => {
     fetch(URL)
@@ -40,7 +40,7 @@ function App() {
       <h1>Notes App</h1>
     <Buttons className="buttons" handleClick={setCount} count={count}></Buttons> 
     {count === 1 && (
-        <AddNotes handleClick={setCount}  data={data} setData={setData} courses={courses} ></AddNotes>
+        <AddNotes handleClick={setCount}  data={data} setData={setData} courses={courses} deleteByText={deleteByText}></AddNotes>
       )}
      {count === 2 && (
         <SavedNotes handleClick={setCount}  data={data} courses={courses}></SavedNotes>
@@ -49,6 +49,7 @@ function App() {
         <AddCoursesTo handleClick={setCount}  data={data}></AddCoursesTo>
       )}
 
+      {/* Testi buttoneit, toimiiko consolis */}
     {/* <button onClick={() => console.log(data)}>test</button>
     <button onClick={() => console.log(courses)}>test</button> */}
 
